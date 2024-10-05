@@ -1,20 +1,15 @@
-import { useEffect, useState } from 'react';
 import { Theme } from '@radix-ui/themes';
 
+import { RouterProvider } from 'react-router-dom';
+import { router } from './Routes';
+
 import '@radix-ui/themes/styles.css';
+import './styles.css';
 
 function App() {
-  const [greeting, setGreeting] = useState('');
-
-  useEffect(() => {
-    fetch('/api')
-      .then((res) => res.text())
-      .then(setGreeting);
-  }, []);
-
   return (
-    <Theme accentColor="yellow">
-      <h1>{greeting}</h1>
+    <Theme accentColor="yellow" appearance="dark">
+      <RouterProvider router={router} />
     </Theme>
   );
 }

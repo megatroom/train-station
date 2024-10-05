@@ -1,4 +1,4 @@
-# Train Station Application
+# 🚋 Train Station Application
 
 This application is a case study. Stack used:
 
