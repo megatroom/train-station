@@ -1,0 +1,9 @@
+node_modules
+.turbo
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+*.local

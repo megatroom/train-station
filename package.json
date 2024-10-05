@@ -1,0 +1,21 @@
+{
+  "name": "train-application",
+  "private": "true",
+  "version": "1.0.0",
+  "packageManager": "npm@10.8.3",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "prod": "node apps/api/dist/main",
+    "format:check": "prettier --check .",
+    "format:write": "prettier --write ."
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^10.4.5",
+    "prettier": "^3.3.3",
+    "turbo": "^2.1.3"
+  },
+  "workspaces": [
+    "apps/*"
+  ]
+}
