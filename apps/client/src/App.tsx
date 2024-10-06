@@ -5,12 +5,16 @@ import { router } from './Routes';
 
 import '@radix-ui/themes/styles.css';
 import './styles.css';
+import { ApolloProvider } from '@apollo/client';
+import { graphqlClient } from './services/clients/graphql.client';
 
 function App() {
   return (
-    <Theme accentColor="yellow" appearance="dark">
-      <RouterProvider router={router} />
-    </Theme>
+    <ApolloProvider client={graphqlClient}>
+      <Theme accentColor="yellow" appearance="dark">
+        <RouterProvider router={router} />
+      </Theme>
+    </ApolloProvider>
   );
 }
 

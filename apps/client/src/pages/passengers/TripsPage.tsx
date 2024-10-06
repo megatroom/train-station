@@ -3,18 +3,24 @@ import { Feature } from '../../components/Feature';
 import { useParams } from 'react-router-dom';
 import { Link } from '../../components/Link';
 import { PassengersLayout } from '../../layouts/PassengersLayout';
-import { STATIONS } from '../../models';
+import { useQuery } from '@apollo/client';
+import { GET_STATIONS } from '../../services/stations.service';
 
 export default function TripsPage() {
   const { start } = useParams();
+  const { loading, error, data } = useQuery(GET_STATIONS);
 
-  const originStation = STATIONS.find((s) => `${s.id}` === start);
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error : {error.message}</p>;
+
+  const originStation = data?.stations.find((s) => `${s.id}` === start);
 
   if (!originStation) {
     return null;
   }
 
-  const destinations = STATIONS.filter((s) => s.id !== originStation.id);
+  const destinations =
+    data?.stations.filter((s) => s.id !== originStation.id) || [];
 
   return (
     <PassengersLayout>

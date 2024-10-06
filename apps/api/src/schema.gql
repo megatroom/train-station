@@ -1,0 +1,21 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Query {
+  station(id: Int!): Station!
+  stations: [Station!]!
+  trip(destinationId: Int!, originId: Int!): Trip!
+}
+
+type Station {
+  color: String
+  id: Int!
+  title: String!
+}
+
+type Trip {
+  destinationStationId: Int!
+  originStationId: Int!
+  price: Float!
+}
