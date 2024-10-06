@@ -4,6 +4,7 @@ import TripsPage from './pages/passengers/TripsPage';
 import RootPage from './pages/RootPage';
 import CheckoutPage from './pages/passengers/CheckoutPage';
 import SuccessPage from './pages/passengers/SuccessPage';
+import AdminPage from './pages/admin/AdminPage';
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +29,6 @@ export const router = createBrowserRouter([
   },
   {
     path: 'admin',
-    element: 'Test',
+    element: <AdminPage />,
   },
 ]);

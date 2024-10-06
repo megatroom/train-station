@@ -18,6 +18,13 @@ const stationTrips = stationIds.reduce((accumulator, originStationId) => {
   return result;
 }, []);
 
+const findTrip = (originId: number, destinationId: number) => {
+  return stationTrips.find(
+    ({ originStationId, destinationStationId }) =>
+      originStationId === originId && destinationStationId === destinationId,
+  );
+};
+
 @Resolver(() => Trip)
 export class TripsResolver {
   @Query(() => Trip)
@@ -27,9 +34,11 @@ export class TripsResolver {
     @Args('destinationId', { type: () => Int })
     destinationId: number,
   ) {
-    return stationTrips.find(
-      ({ originStationId, destinationStationId }) =>
-        originStationId === originId && destinationStationId === destinationId,
-    );
+    return findTrip(originId, destinationId);
+  }
+
+  @Query(() => [Trip])
+  async trips() {
+    return stationTrips;
   }
 }

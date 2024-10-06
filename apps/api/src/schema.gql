@@ -6,6 +6,7 @@ type Query {
   station(id: Int!): Station!
   stations: [Station!]!
   trip(destinationId: Int!, originId: Int!): Trip!
+  trips: [Trip!]!
 }
 
 type Station {

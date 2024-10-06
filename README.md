@@ -1,6 +1,6 @@
 # 🚋 Train Station Application
 
-This application is a case study. Stack used:
+This application is a **case study**. Stack used:
 
 - [NestJS](https://nestjs.com/)
 - [GraphQL](https://graphql.org/) with [Apollo](https://www.apollographql.com/)
